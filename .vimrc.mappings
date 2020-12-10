@@ -1,0 +1,4 @@
+nnoremap <C-e> :NERDTreeToggle<CR>
+nnoremap <silent> ,<space> :nohlsearch<CR>
+"nnoremap <C-p> :FZF<cr>
+nnoremap <nowait> <C-A> :source ~/.vimrc :PlugInstall<CR>
