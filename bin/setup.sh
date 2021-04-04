@@ -32,8 +32,7 @@ installVim () {
   echo "Checking vim dev dependencies"
   for d in ${allDependencies[@]}; do
     echo "checking dependency $d"
-    if ( checkForPackage $d )
-    then
+    if ( checkForPackage $d ) then
       getSudoPassword
       echo "$password" | sudo -k -S apt install $d
     fi
