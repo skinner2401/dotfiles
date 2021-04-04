@@ -39,7 +39,7 @@ installVim () {
     fi
   done
 
-  pushd $HOME/Projects
+  pushd $HOME/src
   echo $'\n\n---------======= CLONING VIM =========------------\n\n'
   git clone https://github.com/vim/vim.git 
   pushd vim/src
