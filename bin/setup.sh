@@ -28,7 +28,7 @@ installVim () {
     fi
   fi
 
-  allDependencies=(libncurses5-dev libgtk2.0-dev libatk1.0-dev libcairo2-dev python-dev python3-dev)
+  allDependencies=(build-essential libncurses5-dev libgtk2.0-dev libatk1.0-dev libcairo2-dev python-dev python3-dev)
   echo "Checking vim dev dependencies"
   for d in ${allDependencies[@]}; do
     echo "checking dependency $d"
