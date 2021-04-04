@@ -1,7 +1,7 @@
 " These settings are from me, not specific to any plugin in particular, 
 " but handy
 
-filetype plugin on
+filetype plugin indent on
 
 " share the system clipboard (pbcopy/pbpaste)
 set clipboard=unnamed
@@ -35,3 +35,11 @@ set backspace=indent,eol,start
 
 " On pressing tab, insert 2 spaces
 set expandtab
+" show existing tab with 2 spaces width
+set tabstop=2
+set softtabstop=2
+" when indenting with '>', use 2 spaces width
+set shiftwidth=2
+
+" make search ignore case
+set ignorecase
