@@ -34,7 +34,7 @@ installVim () {
     echo "checking dependency $d"
     if ( checkForPackage $d ) then
       getSudoPassword
-      echo "$password" | sudo -k -S apt install $d
+      echo "$password" | sudo -k -S apt -y install $d
     fi
   done
 
