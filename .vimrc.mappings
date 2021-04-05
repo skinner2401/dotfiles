@@ -1,4 +1,9 @@
+let mapleader=" "
+
 nnoremap <C-e> :NERDTreeToggle<CR>
 nnoremap <silent> ,<space> :nohlsearch<CR>
-"nnoremap <C-p> :FZF<cr>
+nnoremap <C-p> :GFiles<CR>
+nnoremap <Leader><C-p> :Files<CR>
 nnoremap <nowait> <C-A> :source ~/.vimrc :PlugInstall<CR>
+
+

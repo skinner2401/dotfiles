@@ -1,0 +1,2 @@
+nmap <Leader>gh viw :GBrowse<CR>
+vmap <Leader>gh :'<,'>GBrowse<CR>

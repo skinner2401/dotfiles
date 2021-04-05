@@ -40,6 +40,7 @@ Plug 'junegunn/fzf.vim'"
 Plug 'itchyny/lightline.vim' " ~/.vimrc.lightline
 Plug 'xolox/vim-notes'       " ~/.vimrc.vimnotes
 Plug 'xolox/vim-misc'        " <none>
+Plug 'tpope/vim-fugitive'    " ~/.vimrc.vim-fugitive
 
 call plug#end()
 
