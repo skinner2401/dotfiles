@@ -18,3 +18,14 @@ source ~/.vimrc.splitnav
 source ~/.vimrc.easyalign
 source ~/.vimrc.lightline
 source ~/.vimrc.nerdtree
+source ~/.vimrc.fzf.vim
+source ~/.vimrc.tmuxsplits
+
+
+let uname = substitute(system('uname'),'\n','','')
+if uname == 'Linux'
+  let lines = readfile("/proc/version")
+  if lines[0] =~ "Microsoft"
+    source ~/.vimrc.wsl
+  endif
+endif
