@@ -13,6 +13,10 @@ getSudoPassword () {
   fi
 }
 
+installRust() {
+  curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+}
+
 installVim () {
   echo 'Checking if vim is already installed.'
   if ( which vim ) then
@@ -98,6 +102,10 @@ while read -p "Do you want to install ripgrep (y/n): " installripgrep && [ "$ins
   :
 done
 
+while read -p "Do you want to install rust compiler (y/n): " installripgrep && [ "$installrust" != "y" ] && [ "$installrust" != "n" ]; do
+    :
+done
+
 if [ "$updateall" = "y" ];
 then
   echo 'updating, you may be asked for sudo password'
@@ -113,7 +121,7 @@ fi
 if [ "$copydevenv" = "y" ];
 then
   echo "Copying vimrc"
-  cp ".vimrc"* "$HOME/."
+  cp ".vimrc*" "$HOME/."
 fi
 
 if [ "$installfzf" = "y" ];
@@ -129,3 +137,9 @@ then
   getSudoPassword
   echo "$password" | sudo -k -S apt install ripgrep
 fi
+
+if [ "$installrust" = "y" ];
+then
+  echo "installing rust compiler"
+  installRust
+}
