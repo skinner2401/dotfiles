@@ -1,5 +1,7 @@
 " These settings are from me, not specific to any plugin in particular, 
 " but handy
+"
+au BufNewFile,BufRead .aliases,aliases-local call dist#ft#SetFileTypeSH("bash")
 
 filetype plugin indent on
 
