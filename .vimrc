@@ -1,13 +1,5 @@
 let scriptPath = fnamemodify(resolve(expand('<sfile>:p')), ':h')
 
-"echo "blah1"
-"echo scriptPath
-"echo "blah2"
-"echo "vimruntime"
-"echo $VIMRUNTIME
-"echo "vim"
-"echo $VIM
-
 " my vim settings
 exec "source " . scriptPath . "/.vimrc.settings"
 " my vim scripts
