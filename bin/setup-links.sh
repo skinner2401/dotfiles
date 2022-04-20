@@ -1,12 +1,29 @@
 #!/bin/zsh
 
 NOW=`date '+%F_%H-%M-%S'`
+
 # for more information on zsh command expansion, see
 # man zshexpn
+# This gives us the scripts running directory
 SCRIPTDIR=${0:a:h}
 echo "script dir: $SCRIPTDIR"
 
-DF=$SCRIPTDIR/..
+function bkupAndSymlink() {
+  if [ "$1" -ef "$2" ]; then
+    echo "$1 is already properly symlinked, skipping."
+  else
+    if [ -f $1 ]; then
+      local BKUP=$1.$NOW.bkup
+      echo "backing up $1 to $BKUP"
+      mv $1 $BKUP
+    fi
+    echo "creating symlink from $2 to $1"
+    ln -s $2 $1
+  fi
+}
+
+DF=$(readlink -f "$SCRIPTDIR/..")
+echo "dotfiles path: $DF"
 CFG=$HOME/.config
 VIMRCDF=$DF/.vimrc
 NVIMCONFDIR=$CFG/nvim
@@ -15,8 +32,10 @@ TMUXCONFDF=$DF/.tmux.conf
 TMUXCONF=$HOME/.tmux.conf
 ZSHRCDF=$DF/.zshrc
 ZSHRC=$HOME/.zshrc
+ALIASDF=$DF/.aliases
+ALIAS=$HOME/.aliases
 
-if [ -d "$CFG" ]; then 
+if [ -d "$CFG" ]; then
 echo "backing up $CFG"
   CFGBKUP=$CFG.$NOW.bkup
   echo "backing up $CFG to $CFGBKUP"
@@ -28,23 +47,9 @@ if ! [ -d "$CFG" ]; then
   mkdir -p $NVIMCONFDIR
 fi
 
-if [ -f "$TMUXCONF" ]; then
-  TMUXBKUP=$TMUXCONF.$NOW.bkup
-  echo "backing up $TMUXCONF to $TMUXBKUP"
-  mv $TMUXCONF $TMUXBKUP
-fi
-
-echo "creating tmux conf symlink from \"$TMUXCONFDF\" to $TMUXCONF"
-ln -s $TMUXCONFDF $TMUXCONF
-
 echo "creating nvim conf symlinks from \"$VIMRCDF\" to $NVIMCONF"
 ln -s $VIMRCDF $NVIMCONF
 
-if [ -f "$ZSHRC" ]; then
-  ZSHRCBKUP=$ZSHRC.$NOW.bkup
-  echo "backing up $ZSHRC to $ZSHRCBKUP"
-  mv $ZSHRC $ZSHRCBKUP
-fi
- 
-echo "creating zshrc symlink"
-ln -s $ZSHRCDF $ZSHRC
+bkupAndSymlink $TMUXCONF $TMUXCONFDF
+bkupAndSymlink $ZSHRC $ZSHRCDF
+bkupAndSymlink $ALIAS $ALIASDF
