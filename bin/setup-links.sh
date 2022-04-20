@@ -31,7 +31,7 @@ NVIMCONF=$NVIMCONFDIR/init.vim
 TMUXCONFDF=$DF/.tmux.conf
 TMUXCONF=$HOME/.tmux.conf
 ZSHRCDF=$DF/.zshrc
-ZSHRC=$HOME/.zshrc
+ZSHRC=$HOME/.zshrc.skinner2401
 ALIASDF=$DF/.aliases
 ALIAS=$HOME/.aliases
 

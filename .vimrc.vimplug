@@ -41,8 +41,9 @@ Plug 'itchyny/lightline.vim' " ~/.vimrc.lightline
 Plug 'xolox/vim-notes'       " ~/.vimrc.vimnotes
 Plug 'xolox/vim-misc'        " <none>
 Plug 'tpope/vim-fugitive'    " ~/.vimrc.vim-fugitive
-Plug 'tpope/eunuch'          " run unix commands relative to the current directory
+Plug 'tpope/vim-eunuch'      " run unix commands relative to the current directory
 Plug 'tpope/vim-rails'       " for as or av - open specs in a horizontal or vertical split
+Plug 'edkolev/tmuxline.vim'  " powerline for tmux
 
 call plug#end()
 

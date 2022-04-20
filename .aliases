@@ -13,15 +13,18 @@ alias ll="ls -al"
 alias vim=nvim
 alias code="open -a /Applications/Visual\ Studio\ Code.app"
 
-alias dotf="pushd $DOTFILES"
+alias soa="echo sourcing aliases from $HOME/.aliases && source $HOME/.aliases"
 
-alias soa="source $HOME/.aliases"
+alias dotf="pushd $DOTFILES"
+alias src="pushd $HOME/src"
+
 alias va="vimindir $DOTFILES .aliases"
 alias valoc="vimindir $HOME .aliases-local"
 alias vdf="vimindir $DOTFILES"
 alias vvrc="vimindir $DOTFILES .vimrc"
-alias src="pushd $HOME/src"
+alias vzshrc="vimindir $DOTFILES .zshrc"
 
 if [ -f "$ALOCAL" ]; then
+  echo "sourcing local aliases from: $ALOCAL"
   source "$ALOCAL"
 fi
