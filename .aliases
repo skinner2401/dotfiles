@@ -3,6 +3,12 @@ SKNR=$SRC/skinner2401
 DOTFILES=$SKNR/dotfiles
 ALOCAL=$HOME/.aliases-local
 
+function vimindir() {
+  pushd $1 >/dev/null
+  vim $1/$2
+  popd >/dev/null
+}
+
 alias ll="ls -al"
 alias vim=nvim
 alias code="open -a /Applications/Visual\ Studio\ Code.app"
@@ -10,11 +16,11 @@ alias code="open -a /Applications/Visual\ Studio\ Code.app"
 alias dotf="pushd $DOTFILES"
 
 alias soa="source $HOME/.aliases"
-alias va="vim $DOTFILES/.aliases"
-alias valoc="vim $ALOCAL"
+alias va="vimindir $DOTFILES .aliases"
+alias valoc="vimindir $HOME .aliases-local"
+alias vdf="vimindir $DOTFILES"
+alias vvrc="vimindir $DOTFILES .vimrc"
 alias src="pushd $HOME/src"
-alias vdf="vim $DOTFILES"
-alias vvrc="vim $DOTFILES/.vimrc"
 
 if [ -f "$ALOCAL" ]; then
   source "$ALOCAL"
