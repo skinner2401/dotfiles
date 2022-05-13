@@ -34,8 +34,6 @@ Plug 'junegunn/fzf.vim'"
 
 Plug 'itchyny/lightline.vim' " ~/.vimrc.lightline
 
-"Plug 'xolox/vim-misc'        " <none>
-"Plug 'xolox/vim-notes'       " ~/.vimrc.vimnotes
 Plug 'vim-scripts/bash-support.vim' " bash linting
 Plug 'ParamagicDev/vim-medic_chalk'
 Plug 'artanikin/vim-synthwave84'
@@ -45,6 +43,16 @@ Plug 'semibran/vim-colors-synthetic'
 "Plug 'neoclide/coc.nvim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-fugitive'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+
+Plug 'L3MON4D3/LuaSnip'
+
 
 " adds eslint capability to vim
 Plug 'dense-analysis/ale'

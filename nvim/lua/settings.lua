@@ -1,5 +1,5 @@
 -- os clipboard support
-vim.opt.clipboard = "unnamed"
+vim.opt.clipboard = vim.opt.clipboard + "unnamedplus"
 
 -- / search settings
 vim.opt.hlsearch = true
@@ -40,3 +40,13 @@ vim.opt.expandtab = true
 -- 
 -- -- F6 is now auto-indent
 -- nmap <F6> <Plug>(ale_fix)
+--
+vim.opt.termguicolors = tue
+
+vim.cmd([[
+autocmd BufRead * autocmd FileType <buffer> ++once
+      \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
+]])
+
+
+
