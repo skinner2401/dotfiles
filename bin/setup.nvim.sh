@@ -30,6 +30,16 @@ LUADFCFGCUSTOMDIR=$LUADFCFGDIR/lua
 LUACFGCUSTOMDIR=$HOME/.config/nvim/lua
 SRCDIR=$HOME/src
 NVIMINSTALLDIR=$SRCDIR/nvim_repo
+TMUXCONFIGDF=$SCRIPT_DIR/.tmux.conf
+TMUXCONFIG=$HOME/.tmux.conf
+TMUXCONFIGBKUP=$TMUXCONFIG.$NOW.bak
+
+
+if ! which tmux ; then
+  echo 'Installing tmux'
+  sudo apt-get update
+  sudo apt-get install tmux
+fi
 
 if ! which nvim ; then
   echo 'neovim not detetcted, installing neovim'
@@ -44,16 +54,6 @@ else
   echo 'neovim exists. Not installing.'
 fi
 
-# if [ ! -d $HOME/.config/nvim ]; then
-#   echo 'creating nvim config folder ... '
-#   mkdir -p $HOME/.config/nvim
-#   echo 'done'
-# else
-#   echo 'backing up .config/nvim'
-#   mv $HOME/.config/nvim $HOME/.config/nvim.bak.$NOW
-#   mkdir -p $HOME/.config/nvim/custom $LUADFCFGDIR
-# fi
-
 if [ -f $LUACFG ]; then
   echo "Backing up lua vim config to $LUACFGBKUP"
   mv $LUACFG $LUACFGBKUP
@@ -64,6 +64,15 @@ if [ ! -d $LUACFGDIR ]; then
   echo "Nvim config directory does not exist, creating $LUACFGDIR"
   mkdir $LUACFGDIR
 fi
+
+if [ -f $TMUXCONFIG ] ; then
+  echo 'Backing up tmux config'
+  mv $TMUXCONFIG $TMUXCONFIGBKUP
+fi
+
+
+echo 'symlinking tmux config'
+ln -s $TMUXCONFIGDF $TMUXCONFIG
 
 echo "symlinking $LUACFGCUSTOMDIR -> $LUADFCFGCUSTOMDIR"
 ln -s $LUADFCFGCUSTOMDIR $LUACFGCUSTOMDIR
