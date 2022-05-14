@@ -28,10 +28,18 @@ LUACFG=$LUACFGDIR/init.lua
 LUACFGBKUP=$LUACFG.$NOW.bak
 LUADFCFGCUSTOMDIR=$LUADFCFGDIR/lua
 LUACFGCUSTOMDIR=$HOME/.config/nvim/lua
+SRCDIR=$HOME/src
+NVIMINSTALLDIR=$SRCDIR/nvim_repo
 
 if ! which nvim ; then
   echo 'neovim not detetcted, installing neovim'
-  sudo apt-get install neovim
+  pushd $SRCDIR
+  git clone https://github.com/neovim/neovim
+  pushd neovim
+  sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen 
+  echo 'installing neovim depedencies.'
+  make CMAKE_BUILD_TYPE=RelWithDebInfo
+  sudo make install 
 else
   echo 'neovim exists. Not installing.'
 fi
