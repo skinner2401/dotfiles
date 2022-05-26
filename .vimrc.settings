@@ -1,8 +1,9 @@
-" These settings are from me, not specific to any plugin in particular, 
-" but handy
 "
+" automatically detect .aliases and .aliases-local as bash files for syntax
+" highlighting
 au BufNewFile,BufRead .aliases,aliases-local call dist#ft#SetFileTypeSH("bash")
 
+" allow auto-indenting in files
 filetype plugin indent on
 
 " share the system clipboard (pbcopy/pbpaste)
@@ -10,6 +11,7 @@ set clipboard=unnamed
 
 " / search settings
 set hlsearch
+"
 " display search matches in each window as you type
 set incsearch
 
@@ -35,8 +37,9 @@ set smartindent
 " when editing from a current spot
 set backspace=indent,eol,start
 
-" On pressing tab, insert 2 spaces
+" converts tabs to spaces
 set expandtab
+
 " show existing tab with 2 spaces width
 set tabstop=2
 set softtabstop=2
@@ -46,4 +49,9 @@ set shiftwidth=2
 " make search ignore case
 set ignorecase
 
+" don't create a .swapfile for buffers
 set noswapfile
+
+"speed up scrolling in vim
+set ttyfast
+

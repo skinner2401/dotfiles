@@ -44,6 +44,7 @@ Plug 'tpope/vim-fugitive'    " ~/.vimrc.vim-fugitive
 Plug 'tpope/vim-eunuch'      " run unix commands relative to the current directory
 Plug 'tpope/vim-rails'       " for as or av - open specs in a horizontal or vertical split
 Plug 'edkolev/tmuxline.vim'  " powerline for tmux
+"Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
 call plug#end()
 
