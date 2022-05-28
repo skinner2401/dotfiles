@@ -76,7 +76,9 @@ fi
 
 
 echo 'symlinking tmux config'
-ln -s $TMUXCONFIGDF $TMUXCONFIG
+if ! ln -s $TMUXCONFIGDF $TMUXCONFIG ; then
+  echo "Oh no! Something went wrong when we tried \n\n'ln -s $TMUXCONFIGDF $TMUXCONFIG'\n\n. may need to run it with sudo."
+fi
 
 echo "symlinking $LUACFGCUSTOMDIR -> $LUADFCFGCUSTOMDIR"
 ln -s $LUADFCFGCUSTOMDIR $LUACFGCUSTOMDIR
