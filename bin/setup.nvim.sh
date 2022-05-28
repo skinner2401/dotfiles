@@ -19,9 +19,20 @@
 
 set -o nounset                              # Treat unset variables as an error
 
+if ! which realpath ; then
+  if which grealpath ; then
+    REALPATHBIN=grealpath
+  else
+    echo 'please install linux core utils, macos: `brew install coreutils`'
+    exit 1
+  fi
+else
+  REALPATHBIN=realpath
+fi
+
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 NOW=`date +%Y-%m-%d%::z`
-LUADFCFGDIR=$(realpath $SCRIPT_DIR/../nvim)
+LUADFCFGDIR=$($REALPATHBIN realpath $SCRIPT_DIR/../nvim)
 LUADFCFG=$LUADFCFGDIR/init.lua
 LUACFGDIR=$HOME/.config/nvim
 LUACFG=$LUACFGDIR/init.lua
@@ -34,6 +45,18 @@ TMUXCONFIGDF=$SCRIPT_DIR/.tmux.conf
 TMUXCONFIG=$HOME/.tmux.conf
 TMUXCONFIGBKUP=$TMUXCONFIG.$NOW.bak
 
+echo "LUADFCFGDIR $LUADFCFGDIR"
+echo "LUADFCFG $LUADFCFG"
+echo "LUACFGDIR $LUACFGDIR"
+echo "LUACFG $LUACFG"
+echo "LUACFGBKUP $LUACFGBKUP"
+echo "LUADFCFGCUSTOMDIR $LUADFCFGCUSTOMDIR"
+echo "LUACFGCUSTOMDIR $LUACFGCUSTOMDIR"
+echo "SRCDIR $SRCDIR"
+echo "NVIMINSTALLDIR $NVIMINSTALLDIR"
+echo "TMUXCONFIGDF $TMUXCONFIGDF"
+echo "TMUXCONFIG $TMUXCONFIG"
+echo "TMUXCONFIGBKUP $TMUXCONFIGBKUP"
 
 if ! which tmux ; then
   echo 'Installing tmux'
