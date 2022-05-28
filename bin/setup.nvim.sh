@@ -12,8 +12,8 @@ else
 fi
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-LUADFCFGDIR=$($REALPATHBIN realpath $SCRIPT_DIR/../nvim)
 NOW=`TZ=America/Los_Angeles date -Iseconds -r 1533415339`
+LUADFCFGDIR=$($REALPATHBIN $SCRIPT_DIR/../nvim)
 LUADFCFG=$LUADFCFGDIR/init.lua
 LUACFGDIR=$HOME/.config/nvim
 LUACFG=$LUACFGDIR/init.lua
