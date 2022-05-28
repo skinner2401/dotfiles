@@ -1,22 +1,3 @@
-#!/bin/bash - 
-#===============================================================================
-#
-#          FILE: setup.nvim.sh
-# 
-#         USAGE: ./setup.nvim.sh 
-# 
-#   DESCRIPTION: 
-# 
-#       OPTIONS: ---
-#  REQUIREMENTS: ---
-#          BUGS: ---
-#         NOTES: ---
-#        AUTHOR: YOUR NAME (), 
-#  ORGANIZATION: 
-#       CREATED: 04/30/2022 23:56
-#      REVISION:  ---
-#===============================================================================
-
 set -o nounset                              # Treat unset variables as an error
 
 if ! which realpath ; then
