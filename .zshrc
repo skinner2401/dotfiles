@@ -18,3 +18,6 @@ export ZSH_THEME="spaceship"
 
 # python symlink
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
+# Show hidden files in fzf
+export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
