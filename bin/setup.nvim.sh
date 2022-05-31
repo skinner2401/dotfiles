@@ -60,6 +60,11 @@ else
   echo 'neovim exists. Not installing.'
 fi
 
+if [ ! -f "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim ] ; then
+  sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+fi
+
 if [ -f $LUACFG ]; then
   echo "Backing up lua vim config to $LUACFGBKUP"
   mv $LUACFG $LUACFGBKUP
