@@ -8,7 +8,6 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'itchyny/lightline.vim' " ~/.vimrc.lightline
 
-Plug 'vim-scripts/bash-support.vim' " bash linting
 Plug 'artanikin/vim-synthwave84'
 Plug 'semibran/vim-colors-synthetic'
 Plug 'christoomey/vim-tmux-navigator'
