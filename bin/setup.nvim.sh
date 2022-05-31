@@ -12,7 +12,7 @@ else
 fi
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-NOW=`TZ=America/Los_Angeles date -Iseconds -r 1533415339`
+NOW=`date +%s`
 LUADFCFGDIR=$($REALPATHBIN $SCRIPT_DIR/../nvim)
 LUADFCFG=$LUADFCFGDIR/init.lua
 LUACFGDIR=$HOME/.config/nvim
@@ -73,7 +73,6 @@ if [ -f $TMUXCONFIG ] ; then
   echo 'Backing up tmux config'
   mv $TMUXCONFIG $TMUXCONFIGBKUP
 fi
-
 
 echo 'symlinking tmux config'
 if ! ln -s $TMUXCONFIGDF $TMUXCONFIG ; then
