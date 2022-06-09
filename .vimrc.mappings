@@ -8,3 +8,5 @@ nnoremap <nowait> <C-A> :source ~/.vimrc :PlugInstall<CR>
 
 nnoremap <nowait><Leader>e :!ruby path_to_enlightment.rb<CR>
 nnoremap <Leader>= :%!python3 -m json.tool<CR>
+
+
