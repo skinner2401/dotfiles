@@ -70,12 +70,11 @@ fi
 if [ -f $LUACFG ]; then
   echo "Backing up lua vim config to $LUACFGBKUP"
   mv $LUACFG $LUACFGBKUP
-  echo "Done"
 fi
 
-if [ ! -d $LUACFGDIR ]; then
-  echo "Nvim config directory does not exist, creating $LUACFGDIR"
-  mkdir $LUACFGDIR
+if [ ! -d $NVIMCFGDIR ]; then
+  echo "Nvim config directory does not exist, creating $NVIMCFGDIR"
+  mkdir $NVIMCFGDIR
 fi
 
 if [ -f $TMUXCONFIG ] ; then
