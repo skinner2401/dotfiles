@@ -16,10 +16,10 @@ REPOHOME=$SCRIPT_DIR/..
 NOW=`date +%s`
 LUADFCFGDIR=$($REALPATHBIN $REPOHOME/nvim)
 LUADFCFG=$LUADFCFGDIR/init.lua
-LUACFGDIR=$HOME/.config/nvim
-LUACFG=$LUACFGDIR/init.lua
-LUACFGBKUP=$LUACFG.$NOW.bak
 LUADFCFGCUSTOMDIR=$LUADFCFGDIR/lua
+NVIMCFGDIR=$HOME/.config/nvim
+LUACFG=$NVIMCFGDIR/init.lua
+LUACFGBKUP=$LUACFG.$NOW.bak
 LUACFGCUSTOMDIR=$HOME/.config/nvim/lua
 SRCDIR=$HOME/src
 NVIMINSTALLDIR=$SRCDIR/nvim_repo
@@ -29,7 +29,7 @@ TMUXCONFIGBKUP=$TMUXCONFIG.$NOW.bak
 
 echo "LUADFCFGDIR $LUADFCFGDIR"
 echo "LUADFCFG $LUADFCFG"
-echo "LUACFGDIR $LUACFGDIR"
+echo "NVIMCFGDIR $NVIMCFGDIR"
 echo "LUACFG $LUACFG"
 echo "LUACFGBKUP $LUACFGBKUP"
 echo "LUADFCFGCUSTOMDIR $LUADFCFGCUSTOMDIR"
@@ -61,6 +61,7 @@ else
   echo 'neovim exists. Not installing.'
 fi
 
+# install vimplug if it isn't already
 if [ ! -f "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim ] ; then
   sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
