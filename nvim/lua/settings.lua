@@ -6,6 +6,8 @@ vim.opt.hlsearch = true
 -- display search matches in each window as you type
 vim.opt.incsearch = true
 
+vim.opt.ignorecase = true
+
 -- display line numbers
 vim.opt.number = true
 
