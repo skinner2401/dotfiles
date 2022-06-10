@@ -44,7 +44,7 @@ vim.opt.tabstop = 2
 -- -- F6 is now auto-indent
 -- nmap <F6> <Plug>(ale_fix)
 --
-vim.opt.termguicolors = tue
+vim.opt.termguicolors = true
 
 vim.cmd([[
 autocmd BufRead * autocmd FileType <buffer> ++once
