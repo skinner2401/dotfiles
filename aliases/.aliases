@@ -1,5 +1,10 @@
 SRC=$HOME/src
 SKNR=$SRC/skinner2401
+
+if [ ! -d "$SKNR" ] ; then
+  mkdir -p $SKNR
+fi
+
 DOTFILES=$SKNR/dotfiles
 ALOCAL=$HOME/.aliases-local
 
