@@ -14,6 +14,7 @@ Plug 'christoomey/vim-tmux-navigator'
 "Plug 'alexghergh/nvim-tmux-navigation'
 Plug 'tpope/vim-fugitive'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'williamboman/nvim-lsp-installer'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'

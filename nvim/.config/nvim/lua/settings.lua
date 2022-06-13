@@ -1,3 +1,6 @@
+-- set leader
+vim.g.mapleader = " "
+
 -- os clipboard support
 vim.opt.clipboard = vim.opt.clipboard + "unnamedplus"
 
@@ -33,6 +36,8 @@ vim.opt.backspace = "indent,eol,start"
 -- On pressing tab, insert 2 spaces
 vim.opt.expandtab = true
 vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 2
 
 -- disable vim swap file
 --vim.opt.noswapfile = true
