@@ -31,6 +31,7 @@ vim.opt.backspace = "indent,eol,start"
 -- On pressing tab, insert 2 spaces
 vim.opt.expandtab = true
 vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
 
 -- disable vim swap file
 --vim.opt.noswapfile = true
