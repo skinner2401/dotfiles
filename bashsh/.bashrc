@@ -124,6 +124,20 @@ else
   echo "native Linux"
 fi
 
-source "$HOME/.cargo/env"
-source "$HOME/.bashrc.aliases"
-source "$HOME/.aliases"
+CARGO="$HOME/.cargo/env"
+if [ -f $CARGO ] ; then
+  source "$HOME/.cargo/env"
+fi
+
+BA="$HOME/.bashrc.aliases"
+if [ -f $BA ] ; then
+  source $BA
+fi
+
+ALIAS="$HOME/.aliases"
+if [-f $ALIASE ] ; then
+  source "$HOME/.aliases"
+fi
+
+# enable finding hidden in fzf
+export FZF_DEFAULT_COMMAND='find . \! \( -type d -path ./.git -prune \) \! -type d \! -name '\''*.tags'\'' -printf '\''%P\n'\'
