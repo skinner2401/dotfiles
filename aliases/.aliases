@@ -1,13 +1,6 @@
 SRC=$HOME/src
 SKNR=$SRC/skinner2401
 
-if [ ! -d "$SKNR" ] ; then
-  mkdir -p $SKNR
-fi
-
-DOTFILES=$SKNR/dotfiles
-ALOCAL=$HOME/.aliases-local
-
 function vimindir() {
   pushd $1 >/dev/null
   vim $1/$2
@@ -28,6 +21,9 @@ alias val="vimindir $HOME .aliases-local"
 alias vdf="vimindir $DOTFILES"
 alias vvrc="vimindir $DOTFILES .vimrc"
 alias vzshrc="vimindir $DOTFILES .zshrc"
+
+# local alias sourcing
+ALOCAL=$HOME/.aliases-local
 
 if [ -f "$ALOCAL" ]; then
   echo "sourcing local aliases from: $ALOCAL"
