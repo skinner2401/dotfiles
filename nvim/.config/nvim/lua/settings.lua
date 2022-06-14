@@ -41,6 +41,8 @@ vim.opt.softtabstop = 2
 
 -- disable vim swap file
 --vim.opt.noswapfile = true
+vim.cmd[[set noswapfile]]
+
 
 -- jump to next/previous linting error
 -- nmap <silent> [c <Plug>(ale_previous_wrap)
@@ -55,6 +57,4 @@ vim.cmd([[
 autocmd BufRead * autocmd FileType <buffer> ++once
       \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
 ]])
-
-
 

@@ -126,3 +126,4 @@ fi
 
 source "$HOME/.cargo/env"
 source "$HOME/.bashrc.aliases"
+source "$HOME/.aliases"
