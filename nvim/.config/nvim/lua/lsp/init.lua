@@ -5,4 +5,4 @@ end
 
 require("lsp.lsp-installer")
 require("lsp.handlers")
-require"lsp.cmp"
+--require"lsp.cmp"
