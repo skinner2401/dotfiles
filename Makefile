@@ -9,6 +9,7 @@ tmux:
 	stow tmux -t ~/
 
 nvim:
+	mkdir -p ~/.config/nvim || true
 	stow nvim -t ~/
 
 aliases:
