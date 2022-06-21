@@ -105,3 +105,7 @@ eval $(ssh-agent -s)
 
 # enable finding hidden in fzf
 export FZF_DEFAULT_COMMAND='find . \! \( -type d -path ./.git -prune \) \! -type d \! -name '\''*.tags'\'' -printf '\''%P\n'\'
+
+if [ -f $HOME/.zshrc-local ] ; then
+  source $HOME/.zshrc-local
+fi
