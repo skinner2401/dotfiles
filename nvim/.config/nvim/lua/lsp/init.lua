@@ -4,5 +4,7 @@ if not status_ok then
 end
 
 require("lsp.lsp-installer")
+
+require('lsp.fnsignature')
 require("lsp.handlers")
 --require"lsp.cmp"

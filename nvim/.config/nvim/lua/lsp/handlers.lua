@@ -30,23 +30,18 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
-  --vim.api.nvim_set_keymap(
-  --  bufnr,
-  --  "n",
-  --  "gl",
-  --  '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" })<CR>',
-  --  opts
-  --)
+
+  require "lsp_signature".on_attach()  -- Note: add in lsp client on-attach
 end
 
 local lsp_flags = {
   -- This is the default in Nvim 0.7+
   debounce_text_changes = 150,
 }
---require('lspconfig')['pyright'].setup{
---    on_attach = on_attach,
---    flags = lsp_flags,
---}
+require('lspconfig')['pyright'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
 require('lspconfig')['tsserver'].setup{
   on_attach = on_attach,
   flags = lsp_flags,
