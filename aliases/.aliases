@@ -1,5 +1,6 @@
 SRC=$HOME/src
 SKNR=$SRC/skinner2401
+DOTFILES=$SKNR/dotfiles
 
 function vimindir() {
   pushd $1 >/dev/null
