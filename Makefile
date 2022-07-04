@@ -1,6 +1,6 @@
 .PHONY: all installstow tmux nvim aliases bashsh zsh vim
 
-all: installstow tmux nvim aliases bashsh zsh
+all: installstow tmux nvim aliases zsh
 
 installstow:
 	bin/setup.stow.sh
