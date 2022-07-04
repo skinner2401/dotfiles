@@ -8,10 +8,8 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'itchyny/lightline.vim' " ~/.vimrc.lightline
 
-Plug 'artanikin/vim-synthwave84'
 Plug 'semibran/vim-colors-synthetic'
 Plug 'christoomey/vim-tmux-navigator'
-"Plug 'alexghergh/nvim-tmux-navigation'
 Plug 'tpope/vim-fugitive'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'williamboman/nvim-lsp-installer'
@@ -23,9 +21,10 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'heavenshell/vim-jsdoc'
 
-" For luasnip users.
 Plug 'L3MON4D3/LuaSnip'
-Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'simrat39/rust-tools.nvim'
 Plug 'ray-x/lsp_signature.nvim'
 
 call plug#end()

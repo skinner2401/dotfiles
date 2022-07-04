@@ -20,7 +20,7 @@ vim.opt.whichwrap = vim.opt.whichwrap + "<,>,h,l,[,]"
 -- add fzf to the runtime path
 vim.opt.rtp = vim.opt.rtp + "/usr/local/opt/fzf"
 
--- when switching between buffers, automatically save 
+-- when switching between buffers, automatically save
 -- modifications to the buffer's window
 vim.opt.autowriteall = true
 
@@ -47,14 +47,27 @@ vim.cmd[[set noswapfile]]
 -- jump to next/previous linting error
 -- nmap <silent> [c <Plug>(ale_previous_wrap)
 -- nmap <silent> ]c <Plug>(ale_next_wrap)
--- 
+--
 -- -- F6 is now auto-indent
 -- nmap <F6> <Plug>(ale_fix)
 --
-vim.opt.termguicolors = tue
+vim.opt.termguicolors = true
 
 vim.cmd([[
+let g:python3_host_prog="/usr/bin/python3"
 autocmd BufRead * autocmd FileType <buffer> ++once
-      \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
+\ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
 ]])
 
+-- autocomplete options
+vim.cmd([[
+set completeopt=menuone,noinsert,noselect
+set shortmess+=c
+]])
+
+-- gui colors
+--vim.g.colors_name = industry
+--vim.cmd([[
+--highlight Pmenu guibg=grey
+--highlight PmenuSel guibg=black
+--]])

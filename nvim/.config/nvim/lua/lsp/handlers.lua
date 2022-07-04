@@ -1,10 +1,3 @@
--- Mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local opts = { noremap=true, silent=true }
-vim.keymap.set('n', 'gl', vim.diagnostic.open_float, opts)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -74,20 +67,79 @@ require('lspconfig')['eslint'].setup{
   }
 }
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+--local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-require('lspconfig')['rust_analyzer'].setup({
-    capabilities=capabilities,
+--require('lspconfig')['rust_analyzer'].setup({
+--    capabilities=capabilities,
+--    -- on_attach is a callback called when the language server attachs to the buffer
+--    on_attach = on_attach,
+--    settings = {
+--        -- to enable rust-analyzer settings visit:
+--        -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
+--        ["rust-analyzer"] = {
+--            -- enable clippy diagnostics on save
+--            checkOnSave = {
+--                command = "clippy"
+--            },
+--        }
+--    }
+--})
+
+local nvim_lsp = require'lspconfig'
+nvim_lsp.rust_analyzer.setup{}
+
+local cmp = require'cmp'
+local opts = {
+  tools = { -- rust-tools options
+    autoSetHints = true,
+    hover_with_actions = true,
+    inlay_hints = {
+      show_parameter_hints = true,
+      parameter_hints_prefix = "",
+      other_hints_prefix = "",
+    },
+  },
+
+-- all the opts to send to nvim-lspconfig.  these override the defaults set by rust-tools.nvim
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer
+  server = {
     -- on_attach is a callback called when the language server attachs to the buffer
-    on_attach = on_attach,
+    -- on_attach = on_attach,
     settings = {
-        -- to enable rust-analyzer settings visit:
-        -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
-        ["rust-analyzer"] = {
-            -- enable clippy diagnostics on save
-            checkOnSave = {
-                command = "clippy"
-            },
-        }
+      -- to enable rust-analyzer settings visit:
+      -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
+      ["rust-analyzer"] = {
+        -- enable clippy on save
+        checkOnSave = {
+          command = "clippy"
+        },
+      }
     }
+  },
+}
+require('rust-tools').setup(opts)
+
+-- configure cmp
+cmp.setup({
+  -- Enable LSP snippets
+  snippet = {
+    expand = function(args)
+      vim.fn["vsnip#anonymous"](args.body)
+    end,
+  },
+  mapping = {
+    ['<Tab>'] = cmp.mapping.confirm({
+      behavior = cmp.ConfirmBehavior.Insert,
+      select = true,
+    })
+  },
+  -- Installed sources
+  sources = {
+    { name = 'nvim_lsp' },
+    { name = 'vsnip' },
+    { name = 'path' },
+    { name = 'buffer' },
+    { name = 'luasnip' },
+  },
 })
+
