@@ -16,7 +16,7 @@ vim.api.nvim_set_keymap('n', '<C-l>', ":TmuxNavigateRight<cr>", { noremap = true
 vim.api.nvim_set_keymap('n', '<c-]>', ":lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'K', ":lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'gD', ":lua vim.lsp.buf.implementation()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<c-k>', ":lua vim.lsp.buf.signature_help()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>k', ":lua vim.lsp.buf.signature_help()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '1gD', ":lua vim.lsp.buf.type_definition()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'gr', ":lua vim.lsp.buf.references()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'g0', ":lua vim.lsp.buf.document_symbol()<CR>", { noremap = true, silent = true })
