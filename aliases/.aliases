@@ -19,6 +19,7 @@ alias src="pushd $HOME/src"
 
 alias va="vimindir $DOTFILES .aliases"
 alias val="vimindir $HOME .aliases-local"
+alias vzl="vimindir $HOME .zshrc-local"
 alias vdf="vimindir $DOTFILES"
 alias vvrc="vimindir $DOTFILES .vimrc"
 alias vzshrc="vimindir $DOTFILES .zshrc"
