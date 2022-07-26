@@ -51,7 +51,7 @@ vim.cmd[[set noswapfile]]
 -- -- F6 is now auto-indent
 -- nmap <F6> <Plug>(ale_fix)
 --
-vim.opt.termguicolors = true
+--vim.opt.termguicolors = true
 
 vim.cmd([[
 let g:python3_host_prog="/usr/bin/python3"
@@ -66,7 +66,7 @@ set shortmess+=c
 ]])
 
 -- gui colors
---vim.g.colors_name = industry
+vim.g.colors_name = industry
 --vim.cmd([[
 --highlight Pmenu guibg=grey
 --highlight PmenuSel guibg=black
