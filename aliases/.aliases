@@ -10,7 +10,6 @@ function vimindir() {
 
 alias ll="ls -al"
 alias vim=nvim
-alias code="open -a /Applications/Visual\ Studio\ Code.app"
 
 alias soa="echo sourcing aliases from $HOME/.aliases && source $HOME/.aliases"
 

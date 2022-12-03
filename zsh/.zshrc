@@ -1,3 +1,5 @@
+#turn off all beeps
+unsetopt BEEP
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -109,3 +111,5 @@ export FZF_DEFAULT_COMMAND='find . \! \( -type d -path ./.git -prune \) \! -type
 if [ -f $HOME/.zshrc-local ] ; then
   source $HOME/.zshrc-local
 fi
+
+export PATH="/usr/local/go/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
