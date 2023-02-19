@@ -19,4 +19,27 @@ local function on_attach(client, bufnr)
     -- set up buffer keymaps, etc.
 end
 
-lspconfig.sumneko_lua.setup {}
+--lspconfig.sumneko_lua.setup {}
+
+--
+-- TypeScript
+lspconfig.tsserver.setup {
+  on_attach = on_attach,
+  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+  cmd = { "typescript-language-server", "--stdio" }
+}
+
+-- Go
+lspconfig.gopls.setup {
+    cmd = {"gopls", "serve"},
+    filetypes = {"go", "gomod"},
+    root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
+    settings = {
+      gopls = {
+        analyses = {
+          unusedparams = true,
+        },
+        staticcheck = true,
+      },
+    },
+}

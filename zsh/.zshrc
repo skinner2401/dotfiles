@@ -113,3 +113,5 @@ if [ -f $HOME/.zshrc-local ] ; then
 fi
 
 export PATH="/usr/local/go/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

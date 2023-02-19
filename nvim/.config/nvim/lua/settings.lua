@@ -1,3 +1,5 @@
+-- Formatting, Highlighting, Autocompletion
+
 -- set leader
 vim.g.mapleader = " "
 

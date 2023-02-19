@@ -27,6 +27,11 @@ Plug 'hrsh7th/cmp-vsnip'
 Plug 'simrat39/rust-tools.nvim'
 Plug 'ray-x/lsp_signature.nvim'
 
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+
 call plug#end()
 
 ]])
+
+-- Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }

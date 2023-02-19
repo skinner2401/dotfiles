@@ -1,8 +1,11 @@
+--print("starting")
 local ok, _ = pcall(require, 'local')
 if not ok then
-  print("oh dear")
+  print("oh no")
+  --print("no local lua settings")
 else
-  print("hooray")
+  print("oh yes")
+  --print("loading local lua settings")
 end
 require 'settings'
 require 'scripts'
@@ -12,4 +15,3 @@ require 'lightline'
 require 'nerdtree'
 require 'lsp'
 require 'colorscheme'
-
