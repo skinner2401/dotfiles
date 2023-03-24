@@ -1,21 +1,15 @@
 set -o nounset                              # Treat unset variables as an error
 
-if ! which realpath ; then
-  if which grealpath ; then
-    REALPATHBIN=grealpath
-  else
-    echo 'please install linux core utils, macos: `brew install coreutils`'
-    exit 1
-  fi
-else
-  REALPATHBIN=realpath
-fi
+. ./setup.coreutils.sh
+
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 REPOHOME=$SCRIPT_DIR/..
 NOW=`date +%s`
 LUADFCFGDIR=$($REALPATHBIN $REPOHOME/nvim)
 SRCDIR=$HOME/src
+
+. ./setup.node.sh
 
 if [ ! which nvim ] ; then
   echo 'neovim not detetcted, installing neovim'
