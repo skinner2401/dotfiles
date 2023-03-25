@@ -22,8 +22,8 @@ if [ ! which nvim ] ; then
   pushd $SRCDIR
   git clone https://github.com/neovim/neovim
   pushd neovim
-  git fetch origin v0.7.0
-  git checkout v0.7.0
+  git fetch origin v0.9.0
+  git checkout v0.9.0
   sudo apt-get update
   sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen 
   echo 'installing neovim depedencies.'
