@@ -1,5 +1,6 @@
-echo Linux CoreUtils setup start.
-if ! which realpath ; then
+echo Linux coreutils setup start.
+
+if [ -z 'realpath 2>/dev/null' ]; then
   if which grealpath ; then
     REALPATHBIN=grealpath
   else
@@ -7,7 +8,7 @@ if ! which realpath ; then
     exit 1
   fi
 else
-  echo Coreutils already installed.
   REALPATHBIN=realpath
 fi
-echo CoreUtils setup complete.
+
+echo coreutils setup complete.

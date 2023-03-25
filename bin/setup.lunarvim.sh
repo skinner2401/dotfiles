@@ -1,7 +1,9 @@
+#!/usr/bin/bash
+
 set -o nounset                              # Treat unset variables as an error
 
-. ./setup.coreutils.sh
-
+scriptdir="$( dirname -- "$BASH_SOURCE"; )";
+. $scriptdir/setup.coreutils.sh
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 REPOHOME=$SCRIPT_DIR/..
@@ -9,9 +11,10 @@ NOW=`date +%s`
 LUADFCFGDIR=$($REALPATHBIN $REPOHOME/nvim)
 SRCDIR=$HOME/src
 
-. ./setup.node.sh
+. $scriptdir/setup.node.sh
+. $scriptdir/setup.python3.sh
 
-if [ ! which nvim ] ; then
+if [ -z 'nvim --version 2>/dev/null' ] ; then
   echo 'neovim not detetcted, installing neovim'
   pushd $SRCDIR
   git clone https://github.com/neovim/neovim
