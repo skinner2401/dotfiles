@@ -140,7 +140,7 @@ if [-f $ALIASE ] ; then
 fi
 
 # enable finding hidden in fzf
-export FZF_DEFAULT_COMMAND='find . \! \( -type d -path ./.git -prune \) \! -type d \! -name '\''*.tags'\'' -printf '\''%P\n'\'
+#export FZF_DEFAULT_COMMAND='find . \! \( -type d -path ./.git -prune \) \! -type d \! -name '\''*.tags'\'' -printf '\''%P\n'\'
 if [ -f $HOME/.cargo/env ] ; then
   . "$HOME/.cargo/env"
 fi
