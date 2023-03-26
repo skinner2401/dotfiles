@@ -34,7 +34,7 @@ SRCDIR=$HOME/src
 if ! hash nvim; then
   echo 'neovim not detetcted, installing neovim'
   echo 'cloning neovim'
-  git clone git@github.com:neovim/neovim.git $SRCDIR/neovim
+  git clone https://github.com/neovim/neovim.git $SRCDIR/neovim
   pushd $SRCDIR/neovim
   
   echo 'Fetching v0.8.3'
