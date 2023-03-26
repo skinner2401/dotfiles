@@ -1,3 +1,5 @@
+#!/usr/bin/bash
+
 set -o nounset                              # Treat unset variables as an error
 
 if ! which realpath ; then
@@ -16,19 +18,27 @@ REPOHOME=$SCRIPT_DIR/..
 NOW=`date +%s`
 LUADFCFGDIR=$($REALPATHBIN $REPOHOME/nvim)
 SRCDIR=$HOME/src
+LOGS=$HOME/logs
+mkdir $LOGS
 
-if [ ! which nvim ] ; then
+if ! hash nvim; then
   echo 'neovim not detetcted, installing neovim'
-  pushd $SRCDIR
-  git clone https://github.com/neovim/neovim
-  pushd neovim
-  git fetch origin v0.9.0
-  git checkout v0.9.0
+  echo 'cloning neovim'
+  git clone git@github.com:neovim/neovim.git $SRCDIR/neovim
+  pushd $SRCDIR/neovim
+  
+  echo 'Fetching v0.8.3'
+  git fetch origin v0.8.3
+  echo 'checking out v0.8.3'
+  git checkout v0.8.3
+  echo 'Installing neovim dependencies.'
   sudo apt-get update
-  sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen 
-  echo 'installing neovim depedencies.'
+  sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen
   make CMAKE_BUILD_TYPE=RelWithDebInfo
-  sudo make install 
+  echo 'Working directory:'
+  pwd
+  echo 'calling make install'
+  sudo make install
 else
   echo 'neovim exists. Not installing.'
 fi
