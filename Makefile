@@ -16,6 +16,7 @@ nvim:
 	stow nvim -t ~/
 
 lvim:
+	rm ~/.config/lvim/config.lua
 	mkdir -p ~/.config/lvim || true
 	stow lvim -t ~/
 
@@ -32,6 +33,7 @@ clean-bashsh:
 	stow -D bashsh -t ~/
 
 zsh:
+	mv ~/.zshrc ~/.zshrc.bak
 	stow zsh -t ~/
 	
 clean-zsh:

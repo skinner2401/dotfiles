@@ -28,6 +28,7 @@ if ! hash nvim; then
   pushd $SRCDIR/neovim
   
   echo 'Fetching v0.8.3'
+  git pull
   git fetch origin v0.8.3
   echo 'checking out v0.8.3'
   git checkout v0.8.3
@@ -37,6 +38,8 @@ if ! hash nvim; then
   make CMAKE_BUILD_TYPE=RelWithDebInfo
   echo 'Working directory:'
   pwd
+  echo 'cleaning'
+  sudo make distclean
   echo 'calling make install'
   sudo make install
 else

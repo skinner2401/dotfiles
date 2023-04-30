@@ -256,7 +256,7 @@ lvim.plugins = {
 local extension_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/packages/codelldb/extension/")
 local codelldb_path = extension_path .. 'adapter/codelldb'
 local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'  -- MacOS: This may be .dylib
-local codelldb_adapter = require('rust-tools.dap').get_codelldb_adapter(codelldb_path, liblldb_path)
+-- local codelldb_adapter = require('rust-tools.dap').get_codelldb_adapter(codelldb_path, liblldb_path)
 
 pcall(function()
   require("rust-tools").setup {
@@ -372,3 +372,23 @@ lvim.builtin.dap.on_config_done = function(dap)
   --  },
   --}
 end
+
+--if vim.fn.has("wsl") == 1 then
+--  vim.api.nvim_exec(
+--    [[
+--    let g:clipboard = {
+--        \   'name': 'win32yank-wsl',
+--        \   'copy': {
+--        \      '+': 'win32yank.exe -i --crlf',
+--        \      '*': 'win32yank.exe -i --crlf',
+--        \    },
+--        \   'paste': {
+--        \      '+': 'win32yank.exe -o --lf',
+--        \      '*': 'win32yank.exe -o --lf',
+--        \   },
+--        \   'cache_enabled': 0,
+--        \ }
+--  ]],
+--    true
+--  )
+--end
