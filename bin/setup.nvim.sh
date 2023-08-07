@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 
+lvim091checksum256=6c083017304213c3a3efde8d332a52231b8df8206d35146942097c303ebf93d5
+
 set -o nounset                              # Treat unset variables as an error
 
 if ! which realpath ; then
@@ -21,16 +23,19 @@ SRCDIR=$HOME/src
 LOGS=$HOME/logs
 mkdir $LOGS
 
-if ! hash nvim; then
+if ! (hash nvim) || ([ "$1" = "-f" ])
+then
   echo 'neovim not detetcted, installing neovim'
   echo 'cloning neovim'
   git clone git@github.com:neovim/neovim.git $SRCDIR/neovim
   pushd $SRCDIR/neovim
   
-  echo 'Fetching v0.8.3'
-  git fetch origin v0.8.3
-  echo 'checking out v0.8.3'
-  git checkout v0.8.3
+  echo 'Pulling all history'
+  git pull
+  echo 'Fetching v0.9.1'
+  git fetch origin "v0.9.1"
+  echo 'checking out v0.9.1'
+  git checkout "v0.9.1"
   echo 'Installing neovim dependencies.'
   sudo apt-get update
   sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen
