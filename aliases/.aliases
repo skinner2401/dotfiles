@@ -23,6 +23,7 @@ alias vzl="vimindir $HOME .zshrc-local"
 alias vdf="vimindir $DOTFILES"
 alias vvrc="vimindir $DOTFILES .vimrc"
 alias vzshrc="vimindir $DOTFILES .zshrc"
+alias vli="vimindir $DOTFILES ./nvim/.config/nvim/init.lua"
 
 # local alias sourcing
 ALOCAL=$HOME/.aliases-local
@@ -31,3 +32,4 @@ if [ -f "$ALOCAL" ]; then
   echo "sourcing local aliases from: $ALOCAL"
   source "$ALOCAL"
 fi
+
