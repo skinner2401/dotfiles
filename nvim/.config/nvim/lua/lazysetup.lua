@@ -45,7 +45,12 @@ require("lazy").setup({
     'hrsh7th/vim-vsnip',
     'hrsh7th/cmp-vsnip',
     'simrat39/rust-tools.nvim',
-    'ray-x/lsp_signature.nvim'
+    'ray-x/lsp_signature.nvim',
+    {
+      "pmizio/typescript-tools.nvim",
+      dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+      opts = {}
+    }
   },
   -- highlight-end
   -- Configure any other settings here. See the documentation for more details.

@@ -25,6 +25,7 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'simrat39/rust-tools.nvim'
 Plug 'ray-x/lsp_signature.nvim'
+Plug 'pmizio/typescript-tools.nvim'
 
 call plug#end()
 
